@@ -1,0 +1,9 @@
+<launch>
+
+  <rosparam file="$(find Fusion_description)/launch/controller.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="Fusion" args="Revolute6_position_controller Revolute7_position_controller Revolute8_position_controller Revolute9_position_controller joint_state_controller "/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/Fusion/joint_states"/>
+  </node>
+
+</launch>
