@@ -1,0 +1,10 @@
+cd catkin_ws
+catkin_make
+
+cd src/Fusion_description
+roslaunch Fusion_description gazebo.launch
+python3 obs.py
+
+rqt
+python3 object_identification_node_SIFT.py
+
